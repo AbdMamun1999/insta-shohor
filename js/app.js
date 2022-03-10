@@ -51,9 +51,6 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  console.log(post)
-  console.log(post.comments)
-  console.log(post.comments[0].user)
     const image = post.image;
     const user = post.userImage;
     const div = document.createElement( "article" );
@@ -156,7 +153,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    reportedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
@@ -167,5 +164,4 @@ const loadPosts = async () =>{
   posts = await data.json();
   showPosts(posts);
 }
-
 loadPosts();
